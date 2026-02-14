@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ladli Behen Yojana - Fraud Detection System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="icon">🛡️</span>
+            <div>
+                <h2>लाडली बहन योजना</h2>
+                <p>Fraud Detection System</p>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="nav-link active" onclick="showSection('dashboard')">Dashboard</a>
+            <a href="#" class="nav-link" onclick="showSection('detection')">Detection</a>
+            <a href="#" class="nav-link" onclick="showSection('reports')">Reports</a>
+            <a href="#" class="nav-link" onclick="showSection('compliance')">Compliance</a>
+        </div>
+        <button class="btn-assistant" onclick="toggleAssistant()">AI Assistant</button>
+    </nav>
+
+    <!-- Dashboard Section -->
+    <div id="dashboard-section" class="page-section active">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Advanced Fraud Detection for <span class="hindi">लाडली बहन योजना</span></h1>
+                <p>Protecting beneficiaries with AI-powered fraud detection, ensuring genuine women receive their rightful benefits under the Ladli Behen Yojana.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="showAddForm()">Start Detection</button>
+                    <button class="btn-secondary" onclick="toggleAssistant()">Ask AI Assistant</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="illustration">🏛️</div>
+            </div>
+        </section>
+
+        <section class="stats">
+        <div class="stat-card">
+            <div class="stat-icon">📄</div>
+            <div class="stat-info">
+                <p>Total Applications</p>
+                <h3 id="totalApps">0</h3>
+            </div>
+        </div>
+        <div class="stat-card alert">
+            <div class="stat-icon">⚠️</div>
+            <div class="stat-info">
+                <p>Fraud Detected</p>
+                <h3 id="fraudDetected">0</h3>
+            </div>
+        </div>
+        <div class="stat-card success">
+            <div class="stat-icon">✓</div>
+            <div class="stat-info">
+                <p>Verified Cases</p>
+                <h3 id="verifiedCases">0</h3>
+            </div>
+        </div>
+        <div class="stat-card warning">
+            <div class="stat-icon">👁️</div>
+            <div class="stat-info">
+                <p>Under Review</p>
+                <h3 id="underReview">0</h3>
+            </div>
+        </div>
+    </section>
+
+        <section class="cases-section">
+            <div class="section-header">
+                <h2>🔍 Recent Fraud Detection Cases</h2>
+                <button class="btn-add" onclick="showAddForm()">+ Add New Case</button>
+            </div>
+            <div id="casesList" class="cases-list"></div>
+        </section>
+    </div>
+
+    <!-- Detection Section -->
+    <div id="detection-section" class="page-section">
+        <section class="detection-content">
+            <h1>🔍 Fraud Detection</h1>
+            <p class="section-description">Real-time monitoring and analysis of Ladli Behen Yojana applications</p>
+            
+            <div class="detection-grid">
+                <div class="detection-card">
+                    <div class="detection-icon">🔒</div>
+                    <h3>Secure</h3>
+                    <p>End-to-end encryption for all data</p>
+                </div>
+                <div class="detection-card">
+                    <div class="detection-icon">👥</div>
+                    <h3>Compliant</h3>
+                    <p>GDPR and data protection compliant</p>
+                </div>
+                <div class="detection-card">
+                    <div class="detection-icon">🤖</div>
+                    <h3>AI-Powered</h3>
+                    <p>Machine learning fraud detection</p>
+                </div>
+            </div>
+
+            <div class="all-cases-section">
+                <h2>All Detection Cases</h2>
+                <div id="allCasesList" class="cases-list"></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Reports Section -->
+    <div id="reports-section" class="page-section">
+        <section class="reports-content">
+            <h1>📊 Reports</h1>
+            <p class="section-description">Comprehensive analytics and reporting for fraud detection activities</p>
+            
+            <div class="reports-grid">
+                <div class="report-card">
+                    <h3>Monthly Summary</h3>
+                    <p>Total cases processed this month</p>
+                    <div class="report-value" id="monthlyTotal">0</div>
+                    <button class="btn-primary">Download Report</button>
+                </div>
+                <div class="report-card">
+                    <h3>Fraud Rate</h3>
+                    <p>Percentage of fraudulent cases detected</p>
+                    <div class="report-value" id="fraudRate">0%</div>
+                    <button class="btn-primary">View Details</button>
+                </div>
+                <div class="report-card">
+                    <h3>Success Rate</h3>
+                    <p>Verified and approved applications</p>
+                    <div class="report-value" id="successRate">0%</div>
+                    <button class="btn-primary">Export Data</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Compliance Section -->
+    <div id="compliance-section" class="page-section">
+        <section class="compliance-section">
+        <div class="compliance-header">
+            <h2>🛡️ Data Compliance & Security</h2>
+            <p>Our fraud detection system ensures complete data protection and regulatory compliance while maintaining the highest security standards for Ladli Behen Yojana beneficiaries.</p>
+        </div>
+
+        <div class="compliance-stats">
+            <div class="compliance-card">
+                <h3>98.5%</h3>
+                <p>Compliance Score</p>
+                <span class="badge badge-success">excellent</span>
+            </div>
+            <div class="compliance-card">
+                <h3>0</h3>
+                <p>Data Breaches</p>
+                <span class="badge badge-success">secure</span>
+            </div>
+            <div class="compliance-card">
+                <h3>2</h3>
+                <p>Audit Findings</p>
+                <span class="badge badge-info">low</span>
+            </div>
+            <div class="compliance-card">
+                <h3>15 days ago</h3>
+                <p>Last Assessment</p>
+                <span class="badge badge-info">recent</span>
+            </div>
+        </div>
+
+        <div class="security-features">
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Data Encryption</h3>
+                <div class="feature-badges">
+                    <span class="badge badge-success">High</span>
+                    <span class="badge badge-success">Active</span>
+                </div>
+                <p>All user data encrypted with AES-256</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📋</div>
+                <h3>GDPR Compliance</h3>
+                <div class="feature-badges">
+                    <span class="badge badge-success">Complete</span>
+                    <span class="badge badge-success">Verified</span>
+                </div>
+                <p>Full compliance with European data protection</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <h3>User Consent</h3>
+                <div class="feature-badges">
+                    <span class="badge badge-success">Mandatory</span>
+                    <span class="badge badge-success">Active</span>
+                </div>
+                <p>Explicit consent for data collection and processing</p>
+            </div>
+        </div>
+
+        <div class="security-features">
+            <div class="feature-card">
+                <div class="feature-icon">📝</div>
+                <h3>Audit Logging</h3>
+                <div class="feature-badges">
+                    <span class="badge badge-warning">Continuous</span>
+                    <span class="badge badge-warning">Monitoring</span>
+                </div>
+                <p>Complete audit trail for all system activities</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👁️</div>
+                <h3>Access Control</h3>
+                <div class="feature-badges">
+                    <span class="badge badge-success">Strict</span>
+                    <span class="badge badge-success">Active</span>
+                </div>
+                <p>Role-based access with multi-factor authentication</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>Security Scanning</h3>
+                <div class="feature-badges">
+                    <span class="badge badge-info">Regular</span>
+                    <span class="badge badge-info">Scheduled</span>
+                </div>
+                <p>Regular vulnerability assessments and penetration testing</p>
+            </div>
+        </div>
+
+        <div class="compliance-banner">
+            <div class="banner-content">
+                <div class="banner-icon">✓</div>
+                <div>
+                    <h3>System Compliance Verified</h3>
+                    <p>All security protocols active and data protection measures in place</p>
+                </div>
+            </div>
+            <div class="banner-actions">
+                <button class="btn-secondary">View Full Report</button>
+                <button class="btn-primary">Download Certificate</button>
+            </div>
+        </div>
+
+        <div class="help-section">
+            <div class="help-icon">ℹ️</div>
+            <div>
+                <h4>Need Compliance Assistance?</h4>
+                <p>Ask our AI assistant for guidance</p>
+            </div>
+            <button class="btn-primary" onclick="toggleAssistant()">Get Help</button>
+        </div>
+        </section>
+    </div>
+
+    <!-- Add Case Modal -->
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddForm()">&times;</span>
+            <h2>Add New Case</h2>
+            <form id="addCaseForm" onsubmit="addCase(event)">
+                <input type="text" id="caseName" placeholder="Name" required>
+                <input type="text" id="caseId" placeholder="ID (e.g., FD001)" required>
+                <select id="caseRisk" required>
+                    <option value="">Select Risk Level</option>
+                    <option value="High Risk">High Risk</option>
+                    <option value="Medium Risk">Medium Risk</option>
+                    <option value="Low Risk">Low Risk</option>
+                </select>
+                <input type="number" id="caseConfidence" placeholder="Confidence %" min="0" max="100" required>
+                <select id="caseStatus" required>
+                    <option value="">Select Status</option>
+                    <option value="Under Review">Under Review</option>
+                    <option value="Verified">Verified</option>
+                    <option value="Approved">Approved</option>
+                    <option value="Flagged">Flagged</option>
+                </select>
+                <button type="submit" class="btn-primary">Add Case</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- AI Assistant Modal -->
+    <div id="assistantModal" class="modal">
+        <div class="modal-content assistant-modal">
+            <span class="close" onclick="toggleAssistant()">&times;</span>
+            <h2>🤖 AI Assistant</h2>
+            <p class="assistant-subtitle">Get instant answers about fraud detection, compliance, and system usage</p>
+            <div class="chat-box" id="chatBox">
+                <div class="chat-message bot">
+                    <div class="message-time">9:15:15 AM</div>
+                    Hello! I'm your AI assistant for the Ladli Behen Yojana fraud detection system. How can I help you today?
+                </div>
+            </div>
+            <div class="quick-questions">
+                <p class="questions-label">❓ Quick Questions:</p>
+                <button onclick="askQuestion('How to detect fake documents?')">How to detect fake documents?</button>
+                <button onclick="askQuestion('What are common fraud patterns?')">What are common fraud patterns?</button>
+                <button onclick="askQuestion('How to verify beneficiary data?')">How to verify beneficiary data?</button>
+                <button onclick="askQuestion('What documents are required?')">What documents are required?</button>
+                <button onclick="askQuestion('How to report suspected fraud?')">How to report suspected fraud?</button>
+                <button onclick="askQuestion('Data compliance guidelines')">Data compliance guidelines</button>
+            </div>
+            <div class="chat-input-container">
+                <input type="text" id="chatInput" placeholder="Ask me anything about fraud detection..." onkeypress="handleChatKeypress(event)">
+                <button class="btn-send" onclick="sendMessage()">Send</button>
+            </div>
+            <div class="assistant-features">
+                <div class="feature-item">
+                    <div class="feature-icon-small">🛡️</div>
+                    <div>
+                        <h4>Security Guidance</h4>
+                        <p>Get expert advice on data security and compliance protocols</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-small">📄</div>
+                    <div>
+                        <h4>Document Analysis</h4>
+                        <p>Learn about document verification and fraud detection techniques</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-small">👥</div>
+                    <div>
+                        <h4>User Compliance</h4>
+                        <p>Understand data privacy and user consent requirements</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
